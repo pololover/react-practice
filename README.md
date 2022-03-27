@@ -35,3 +35,8 @@ Side-Effect
 email과 password에 대해 입력하는 로직과 form제출에 대한 validation이 같은 로직에 있을 때 이는 분리 시켜주는 것이 좋다고 판단하고 side-effect로 따로 빼는 것을 예로 들 수 있다.   
 
 
+clean-up
+-----
+useEffect 내부에서 return () => {}과 같은 형태를 사용한다면 이는 클린업 함수이다. 클린업 함수의 개념을 확실히 이해하지는 못했지만 컴포넌트가 unmount될 때 실행되며 useEffect에 정의해 놓은 이전 side-effect를 처리한다는 것임을 알았다. 즉 useEffect의 dependency로 설정된 값들이 변화할때마다 cleanup함수가 먼저 실행이 되는데 이 공간에서 바로 전의 side-effect에 대한 내용을 업데이트하는 것이다. 그리고 이후 다음 side-effect가 실행이 되는 것이다.    
+이를 사용하는 예시로는 clearTimeOut이 있는데 사용자가 인풋내용에 대해 입력할때마다 useEffect안의 함수가 실행되는 것은 비효율적이다. 때문에 이런 함수는 비동기로 500ms정도의 타이머를 설정해놓고 clean up내부에서 clearTimeOut으로 이전에 해당하는 내용을 지움으로써 특정 시간이 지났을 때만 useEffect를 실행하게 할 수 있게 된다.    
+즉 email에 csh7215@naver.com라는 것을 입력했을 때 각 키 스트로크마다 500ms가 걸리지만 이들은 cleanup때문에 전부 지워지고 마지막 m을 클릭하고 특정 시간이 지났을 떄(500ms) 
