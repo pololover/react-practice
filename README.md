@@ -58,4 +58,9 @@ AuthContextProvider
 로그인 인증과 관련한 부분을 auth-context.js파일에 담아서 관리할 수 있다.   
 즉 context에 대한 객체 뿐만 아니라 useState를 통해서 반응형으로 다룰 수 있고, useEffect도 사용가능하며, 이곳에서 함수를 정의한 뒤 prop으로 넘겨주어 Provider에 wrapping되고 있는 모든 컴포넌트 들에 대하여 이 인증로직 모듈을 사용할 수 있게 된다. 이는 컴포넌트 분할측면에서 크게 의미가 있으며 login과 같이 전역적으로 사용하는 로직들은 이렇게 분리하여 다루는 것이 효과적일 수 있다.
 
+버튼 입장에서의 context
+-----
+props는 버튼 설정에, context는 컴포넌트나 전체 앱 state의 관리에 쓰는 게 좋다.    
+왜냐하면 버튼 설정에 context를 주게 되면(예를 들어 유저 context를) 유저 context에 한정하여 버튼을 제공하기 때문이다.   
+외로 context는 자주 바뀌는 state에 대해서는 적절하지 않다.   
 
