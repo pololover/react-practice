@@ -53,7 +53,9 @@ consumer 방법은 데이터를 제공하고자 하는 컴포넌트에서 Provid
       
 react hook방법은 useContext훅을 불러와서 사용하는 것이다. useContent의 매개변수로 불러온 Context를 넣어주면 가져오고자 하는 context에 쉽게 접근할 수 있다. 때문에 이 방법을 더 선호하는 것으로 알고있다.   
 
-
-
+AuthContextProvider
+-----
+로그인 인증과 관련한 부분을 auth-context.js파일에 담아서 관리할 수 있다.   
+즉 context에 대한 객체 뿐만 아니라 useState를 통해서 반응형으로 다룰 수 있고, useEffect도 사용가능하며, 이곳에서 함수를 정의한 뒤 prop으로 넘겨주어 Provider에 wrapping되고 있는 모든 컴포넌트 들에 대하여 이 인증로직 모듈을 사용할 수 있게 된다. 이는 컴포넌트 분할측면에서 크게 의미가 있으며 login과 같이 전역적으로 사용하는 로직들은 이렇게 분리하여 다루는 것이 효과적일 수 있다.
 
 
