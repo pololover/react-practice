@@ -50,7 +50,8 @@ context API를 사용하기 전에 고려해야할 점은 props로 전달하기 
 consumer vs react hook
 -----
 consumer 방법은 데이터를 제공하고자 하는 컴포넌트에서 Provider를 정의하고 데이터를 사용하고자 하는 부분에서 Consumer를 정의하여 사용하면 된다. 주의할 점은 사용하고자하는 컴포넌트 내부에서 Consumer를 정의한 뒤 {(context) => return {<div>}}와 같이 {}를 사용해서 출력하고자하는 html코드들을 return해야한다는 점이다. 이 부분이 다소 번거롭고 코드가 깔끔해보이지 않을 수 있다. 
-
+      
+react hook방법은 useContext훅을 불러와서 사용하는 것이다. useContent의 매개변수로 불러온 Context를 넣어주면 가져오고자 하는 context에 쉽게 접근할 수 있다. 때문에 이 방법을 더 선호하는 것으로 알고있다.   
 
 
 
